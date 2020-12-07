@@ -26,6 +26,7 @@ where
     }
 }
 impl<F: Traversable, T: Mirror<Family = F>> TraverseSyntax for T {}
+
 pub trait SequenceSyntax: Mirror + Sized
 where
     Self::Family: Traversable,

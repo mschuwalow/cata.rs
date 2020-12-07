@@ -265,4 +265,13 @@ mod tests {
         };
         assert_eq!(v, Some(1));
     }
+    #[test]
+    fn test_foo() {
+        fn foo<Tr: Traversable, App: Applicative, A, B: Clone, F: Fn(A) -> App::Member<B>>(
+            fa: Tr::Member<A>,
+            f: F
+        ) -> App::Member<Tr::Member<B>> {
+            fa.traverse(f).map(move |x| x)
+        }
+    }
 }
